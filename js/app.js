@@ -1,0 +1,154 @@
+'use strict'
+
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+const img1=document.getElementById("img1");
+const img2=document.getElementById("img2");
+const img3=document.getElementById("img3");
+
+const list=document.getElementById("list");
+
+let random1=0;
+let random2=0;
+let random3=0;
+
+let repetition=0;
+
+
+// ***************************************************************************
+
+function Products (name,image_path){
+    
+    let shown;
+    let selected;
+
+    this.name = name;
+    this.image_path = image_path;
+    this.shown=0;
+    this.selected=0;
+}
+
+ let all_product=[
+     new Products('bag','../img/bag.jpg')
+     ,new Products('banana','../img/banana.jpg')
+     ,new Products('bathroom','../img/bathroom.jpg')
+     ,new Products('boots','../img/boots.jpg')
+     ,new Products('breakfast','../img/breakfast.jpg')
+     ,new Products('bubblegum','../img/bubblegum.jpg')
+     ,new Products('chair','../img/chair.jpg')
+     ,new Products('cthulhu','../img/cthulhu.jpg')
+     ,new Products('dog-duck','../img/dog-duck.jpg')
+     ,new Products('dragon','../img/dragon.jpg')
+     ,new Products('pen','../img/pen.jpg')
+     ,new Products('pet-sweep','../img/pet-sweep.jpg')
+     ,new Products('scissors','../img/scissors.jpg')
+     ,new Products('shark','../img/shark.jpg')
+     ,new Products('sweep','../img/sweep.png')
+     ,new Products('tauntaun','../img/tauntaun.jpg')
+     ,new Products('unicorn','../img/unicorn.jpg')
+     ,new Products('usb','../img/usb.gif')
+     ,new Products('water-can','../img/water-can.jpg')
+     ,new Products('wine-glass','../img/wine-glass.jpg')
+ ];
+
+
+function update_image(){
+    repetition++;
+    random1 = Math.round(getRandomArbitrary(0,19));
+    random2 = Math.round(getRandomArbitrary(0,19));
+
+    while(random1 === random2){
+        random2 = Math.round(getRandomArbitrary(0,19));
+    }
+    random3 = Math.round(getRandomArbitrary(0,19));
+    while(random3 === random1 || random3 === random2){
+        random3 = Math.round(getRandomArbitrary(0,19));
+    }
+
+    all_product[random1].shown++;
+    all_product[random2].shown++;
+    all_product[random3].shown++;
+
+    img1.src=all_product[random1].image_path;
+    img2.src=all_product[random2].image_path;
+    img3.src=all_product[random3].image_path;
+    console.log(repetition)
+}
+
+update_image();
+
+
+img1.addEventListener("click",function() {
+    if(repetition<24){
+        all_product[random1].selected++;
+        update_image();
+    }else{
+        all_product[random1].selected++;
+        update_image();
+        show_results();
+    }
+  });
+
+  img2.addEventListener("click",function() {
+    if(repetition<24){
+        all_product[random2].selected++;
+        update_image();
+    }else{
+        all_product[random2].selected++;
+        update_image();
+        show_results();
+    }
+  });
+
+  img3.addEventListener("click",function() {
+    if(repetition<24){
+        all_product[random3].selected++;
+        update_image();
+    }else{
+        all_product[random3].selected++;
+        update_image();
+        show_results();
+    }
+  });
+
+
+  img1.addEventListener("mouseenter",function() {
+    img1.style.borderColor = 'red';
+  });
+
+  img2.addEventListener("mouseenter",function() {
+    img2.style.borderColor = 'red';
+  });
+  img3.addEventListener("mouseenter",function() {
+    img3.style.borderColor = 'red';
+  });
+ 
+  img1.addEventListener("mouseleave",function() {
+    img1.style.borderColor = '#ff7ac300';
+  });
+  img2.addEventListener("mouseleave",function() {
+    img2.style.borderColor = '#ff7ac300';
+  });
+  img3.addEventListener("mouseleave",function() {
+    img3.style.borderColor = '#ff7ac300';
+  });
+
+  function show_results(){
+      img1.style.display = "none";
+      img2.style.display = "none";
+      img3.style.display = "none";
+
+      for(let i=0;i<19;i++){ 
+        add_li(all_product[i].name+' had '+all_product[i].shown+' votes and was shown '+all_product[i].selected+' times');
+      }
+      
+  
+  }
+
+  function add_li(text) {
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(text));
+    list.appendChild(li);
+  }
