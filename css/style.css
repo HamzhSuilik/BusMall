@@ -1,7 +1,7 @@
 header{
     height: 120px;
     width:94%;
-    background-image: -webkit-linear-gradient(#09022b,#7afff8);
+    background-image: -webkit-linear-gradient(#e42200,#7afff8);
 
     border-width: 3px;
     border-radius: 15px;
@@ -17,9 +17,8 @@ body{
     border-width: 3px;
     border-radius: 15px;
     border-style: solid;
-    border-color: #09022b;
+    border-color: #09012c;
 
-    height:100%;
 }
 
 div>img{
@@ -36,8 +35,10 @@ div>img{
 
 h1{
     font-size: 40px;
-    margin: 15px;
-    color: #ec0d0d;
+    color: #7a077e;
+    font-family: 'Potta One', cursive;
+    width: 100%;
+    text-align: center;
 }
 
 canvas{

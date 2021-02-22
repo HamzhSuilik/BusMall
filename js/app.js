@@ -161,7 +161,7 @@ img1.addEventListener("click",function() {
       img3.style.display = "none";
 
       for(let i=0;i<19;i++){ 
-        add_li(all_product[i].name+' had '+all_product[i].shown+' votes and was shown '+all_product[i].selected+' times');
+        add_li(all_product[i].name +' had '+all_product[i].shown +' shown and was votes '+all_product[i].selected+' times');
       }
       
   
