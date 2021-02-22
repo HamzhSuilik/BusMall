@@ -1,8 +1,25 @@
 header{
     height: 120px;
-    width: 100%;
-    background-image: -webkit-linear-gradient(#09022b,
-    #7afff8);
+    width:94%;
+    background-image: -webkit-linear-gradient(#09022b,#7afff8);
+
+    border-width: 3px;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #09022b;
+    
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 1%;
+}
+body{
+    
+    border-width: 3px;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #09022b;
+
+    height:100%;
 }
 
 div>img{
@@ -21,4 +38,13 @@ h1{
     font-size: 40px;
     margin: 15px;
     color: #ec0d0d;
+}
+
+canvas{
+    background-image: -webkit-linear-gradient(#09022b,#7afff8);
+    border-width: 3px;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #09022b;
+    
 }
