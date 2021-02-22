@@ -14,6 +14,10 @@ let random1=0;
 let random2=0;
 let random3=0;
 
+let random_new_1=0;
+let random_new_2=0;
+let random_new_3=0;
+
 let repetition=0;
 
 
@@ -56,16 +60,29 @@ function Products (name,image_path){
 
 function update_image(){
     repetition++;
-    random1 = Math.round(getRandomArbitrary(0,19));
-    random2 = Math.round(getRandomArbitrary(0,19));
 
-    while(random1 === random2){
-        random2 = Math.round(getRandomArbitrary(0,19));
+    random_new_1 = Math.round(getRandomArbitrary(0,19));
+    while(random_new_1 === random1 || random_new_1 === random2 ||random_new_1 === random3){
+      random_new_1 = Math.round(getRandomArbitrary(0,19));
+      console.log('****1111***')
     }
-    random3 = Math.round(getRandomArbitrary(0,19));
-    while(random3 === random1 || random3 === random2){
-        random3 = Math.round(getRandomArbitrary(0,19));
+    random1=random_new_1;
+
+    random_new_2 = Math.round(getRandomArbitrary(0,19));
+    while(random_new_2 === random1 || random_new_2 === random2 ||random_new_2 === random3){
+      random_new_2 = Math.round(getRandomArbitrary(0,19));
+      console.log('****222***')
     }
+    random2=random_new_2;
+
+    random_new_3 = Math.round(getRandomArbitrary(0,19));
+    while(random_new_3 === random1 || random_new_3 === random2 ||random_new_3 === random3){
+      random_new_3 = Math.round(getRandomArbitrary(0,19));
+      console.log('****33333***')
+    }
+    random3=random_new_3;
+
+
 
     all_product[random1].shown++;
     all_product[random2].shown++;
@@ -87,6 +104,7 @@ img1.addEventListener("click",function() {
     }else{
         all_product[random1].selected++;
         update_image();
+        createChart();
         show_results();
     }
   });
@@ -98,6 +116,7 @@ img1.addEventListener("click",function() {
     }else{
         all_product[random2].selected++;
         update_image();
+        createChart();
         show_results();
     }
   });
@@ -109,6 +128,7 @@ img1.addEventListener("click",function() {
     }else{
         all_product[random3].selected++;
         update_image();
+        createChart();
         show_results();
     }
   });
@@ -141,7 +161,7 @@ img1.addEventListener("click",function() {
       img3.style.display = "none";
 
       for(let i=0;i<19;i++){ 
-        add_li(all_product[i].name+' had '+all_product[i].shown+' votes and was shown '+all_product[i].selected+' times');
+        add_li(all_product[i].name +' had '+all_product[i].shown +' shown and was votes '+all_product[i].selected+' times');
       }
       
   
