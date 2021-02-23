@@ -2,12 +2,10 @@ header{
     height: 120px;
     width:94%;
     background-image: -webkit-linear-gradient(#09022b,#7afff8);
-
     border-width: 3px;
     border-radius: 15px;
     border-style: solid;
     border-color: #09022b;
-    
     margin-left: 2%;
     margin-right: 2%;
     margin-top: 1%;

@@ -104,6 +104,7 @@ img1.addEventListener("click",function() {
     }else{
         all_product[random1].selected++;
         update_image();
+        storage_data();
         createChart();
         show_results();
     }
@@ -116,6 +117,7 @@ img1.addEventListener("click",function() {
     }else{
         all_product[random2].selected++;
         update_image();
+        storage_data();
         createChart();
         show_results();
     }
@@ -128,6 +130,7 @@ img1.addEventListener("click",function() {
     }else{
         all_product[random3].selected++;
         update_image();
+        storage_data();
         createChart();
         show_results();
     }
@@ -160,11 +163,12 @@ img1.addEventListener("click",function() {
       img2.style.display = "none";
       img3.style.display = "none";
 
+      const show_num2 = JSON.parse(localStorage.getItem("show_num"));
+      const select_num2 = JSON.parse(localStorage.getItem("select_num"));
+
       for(let i=0;i<19;i++){ 
-        add_li(all_product[i].name+' had '+all_product[i].shown+' votes and was shown '+all_product[i].selected+' times');
+        add_li(all_product[i].name+' had '+select_num2[i]+' votes and was shown '+show_num2[i]+' times');
       }
-      
-  
   }
 
   function add_li(text) {
@@ -172,3 +176,4 @@ img1.addEventListener("click",function() {
     li.appendChild(document.createTextNode(text));
     list.appendChild(li);
   }
+  
