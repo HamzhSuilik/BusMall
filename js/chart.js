@@ -9,13 +9,6 @@ function createChart() {
     const show_num = JSON.parse(localStorage.getItem("show_num"));
     const select_num = JSON.parse(localStorage.getItem("select_num"));  
 
-  
-    // for (let i = 0; i < all_product.length; i++) {
-    //     Names.push(all_product[i].name);
-    //     show_num.push(all_product[i].shown);
-    //     select_num.push(all_product[i].selected);
-    //   }
-
 
     for (let i = 0; i < all_product.length; i++) {
       Names.push(all_product[i].name);

@@ -41,7 +41,7 @@ function storage_data(){
       for (let i = 0; i < all_product.length ; i++) {
         new_result_shown.push(show_num_array[i]+old_shown[i]);
         new_result_selected.push(select_num_array[i]+old_selected[i]);
-        
+        s
       }
 
       localStorage.setItem("show_num",JSON.stringify(new_result_shown));
