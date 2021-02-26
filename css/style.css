@@ -2,35 +2,33 @@ header{
     height: 120px;
     width:94%;
     background-image: -webkit-linear-gradient(#e42200,#7afff8);
-
     border-width: 3px;
     border-radius: 15px;
     border-style: solid;
     border-color: #09022b;
-    
     margin-left: 2%;
     margin-right: 2%;
     margin-top: 1%;
 }
-body{
-    
-    border-width: 3px;
-    border-radius: 15px;
-    border-style: solid;
-    border-color: #09012c;
 
-}
+
 
 div>img{
-    width: 32%;
+    width: 350px;
     float: left;
     height: 250px;
     margin: 5px;
+    margin-left: 50px;
 
     border-width: 5px;
     border-color: #7acaff00;
     border-style: solid;
     border-radius: 15px;
+}
+
+div>img:hover{
+    background-color: #b90816;
+
 }
 
 h1{
@@ -43,9 +41,11 @@ h1{
 
 canvas{
     background-image: -webkit-linear-gradient(#09022b,#7afff8);
-    border-width: 3px;
+    border-width: 1.5px;
     border-radius: 15px;
     border-style: solid;
     border-color: #09022b;
+    margin-top: 70px;
+    display: block;
     
 }

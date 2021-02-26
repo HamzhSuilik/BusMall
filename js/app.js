@@ -35,26 +35,26 @@ function Products (name,image_path){
 }
 
  let all_product=[
-     new Products('bag','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/bag.jpg')
-     ,new Products('banana','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/banana.jpg')
-     ,new Products('bathroom','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/bathroom.jpg')
-     ,new Products('boots','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/boots.jpg')
-     ,new Products('breakfast','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/breakfast.jpg')
-     ,new Products('bubblegum','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/bubblegum.jpg')
-     ,new Products('chair','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/chair.jpg')
-     ,new Products('cthulhu','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/cthulhu.jpg')
-     ,new Products('dog-duck','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/dog-duck.jpg')
-     ,new Products('dragon','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/dragon.jpg')
-     ,new Products('pen','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/pen.jpg')
-     ,new Products('pet-sweep','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/pet-sweep.jpg')
-     ,new Products('scissors','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/scissors.jpg')
-     ,new Products('shark','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/shark.jpg')
-     ,new Products('sweep','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/sweep.png')
-     ,new Products('tauntaun','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/tauntaun.jpg')
-     ,new Products('unicorn','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/unicorn.jpg')
-     ,new Products('usb','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/usb.gif')
-     ,new Products('water-can','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/water-can.jpg')
-     ,new Products('wine-glass','https://raw.githubusercontent.com/HamzhSuilik/BusMall/main/img/wine-glass.jpg')
+     new Products('bag','/img/bag.jpg')
+     ,new Products('banana','/img/banana.jpg')
+     ,new Products('bathroom','/img/bathroom.jpg')
+     ,new Products('boots','/img/boots.jpg')
+     ,new Products('breakfast','/img/breakfast.jpg')
+     ,new Products('bubblegum','/img/bubblegum.jpg')
+     ,new Products('chair','/img/chair.jpg')
+     ,new Products('cthulhu','/img/cthulhu.jpg')
+     ,new Products('dog-duck','/img/dog-duck.jpg')
+     ,new Products('dragon','/img/dragon.jpg')
+     ,new Products('pen','/img/pen.jpg')
+     ,new Products('pet-sweep','/img/pet-sweep.jpg')
+     ,new Products('scissors','/img/scissors.jpg')
+     ,new Products('shark','/img/shark.jpg')
+     ,new Products('sweep','/img/sweep.png')
+     ,new Products('tauntaun','/img/tauntaun.jpg')
+     ,new Products('unicorn','/img/unicorn.jpg')
+     ,new Products('usb','/img/usb.gif')
+     ,new Products('water-can','/img/water-can.jpg')
+     ,new Products('wine-glass','/img/wine-glass.jpg')
  ];
 
 
@@ -104,6 +104,7 @@ img1.addEventListener("click",function() {
     }else{
         all_product[random1].selected++;
         update_image();
+        storage_data();
         createChart();
         show_results();
     }
@@ -116,6 +117,7 @@ img1.addEventListener("click",function() {
     }else{
         all_product[random2].selected++;
         update_image();
+        storage_data();
         createChart();
         show_results();
     }
@@ -128,43 +130,26 @@ img1.addEventListener("click",function() {
     }else{
         all_product[random3].selected++;
         update_image();
+        storage_data();
         createChart();
         show_results();
     }
   });
-
-
-  img1.addEventListener("mouseenter",function() {
-    img1.style.borderColor = 'red';
-  });
-
-  img2.addEventListener("mouseenter",function() {
-    img2.style.borderColor = 'red';
-  });
-  img3.addEventListener("mouseenter",function() {
-    img3.style.borderColor = 'red';
-  });
  
-  img1.addEventListener("mouseleave",function() {
-    img1.style.borderColor = '#ff7ac300';
-  });
-  img2.addEventListener("mouseleave",function() {
-    img2.style.borderColor = '#ff7ac300';
-  });
-  img3.addEventListener("mouseleave",function() {
-    img3.style.borderColor = '#ff7ac300';
-  });
+ // ***
 
   function show_results(){
       img1.style.display = "none";
       img2.style.display = "none";
       img3.style.display = "none";
+      
+
+      const show_num2 = JSON.parse(localStorage.getItem("show_num"));
+      const select_num2 = JSON.parse(localStorage.getItem("select_num"));
 
       for(let i=0;i<19;i++){ 
         add_li(all_product[i].name +' had '+all_product[i].shown +' shown and was votes '+all_product[i].selected+' times');
       }
-      
-  
   }
 
   function add_li(text) {
@@ -172,3 +157,4 @@ img1.addEventListener("click",function() {
     li.appendChild(document.createTextNode(text));
     list.appendChild(li);
   }
+  
