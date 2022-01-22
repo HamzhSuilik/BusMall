@@ -1,7 +1,7 @@
 'use strict'
 
 
-/// **************************
+/// *******************************
 function createChart() {
     const ctx = document.getElementById('myChart').getContext('2d');
   
